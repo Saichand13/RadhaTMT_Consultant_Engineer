@@ -37,7 +37,7 @@ const data = [
   },
   {
     status: 'Pending',
-    name: ' Reddy',
+    name: 'Reddy',
     phone: '+91-9888888888',
     email: 'chkrishna@gmail.com',
   },
@@ -117,6 +117,7 @@ const GeneratedLeads = props => {
         <View style={styles.listTab}>
           {listTab.map(e => (
             <Pressable
+              key={e.status}
               style={[
                 styles.btnTab,
                 status === e.status && styles.btnTabActive,

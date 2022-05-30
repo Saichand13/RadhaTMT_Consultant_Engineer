@@ -5,9 +5,37 @@ import {
   Image,
   TouchableOpacity,
   Pressable,
+  FlatList,
 } from 'react-native';
 import React from 'react';
 import LeadsComponent from '../components/LeadsComponent';
+
+const data = [
+  {
+    title: 'Generated Leads',
+    name: 'coins',
+    type: 'font-awesome-5',
+    value: '250',
+  },
+  {
+    title: 'Successful Leads',
+    name: 'thumbs-up',
+    type: 'font-awesome-5',
+    value: '10%',
+  },
+  {
+    title: 'Rejected Leads',
+    name: 'thumbs-down',
+    type: 'font-awesome-5',
+    value: '30%',
+  },
+  {
+    title: 'Pending Leads',
+    name: 'pending-actions',
+    type: 'MaterialCommunityIcons',
+    value: '60%',
+  },
+];
 
 const LeadStatus = props => {
   const navigate = () => {
@@ -16,7 +44,20 @@ const LeadStatus = props => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Lead Status</Text>
-      <LeadsComponent
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <LeadsComponent
+            title={item.title}
+            name={item.name}
+            type={item.type}
+            value={item.value}
+            onPress={navigate}
+          />
+        )}
+        keyExtractor={item => item.title}
+      />
+      {/* <LeadsComponent
         title="Generated Leads"
         name="coins"
         type="font-awesome-5"
@@ -45,7 +86,7 @@ const LeadStatus = props => {
         type="MaterialCommunityIcons"
         value="60%"
         onPress={navigate}
-      />
+      /> */}
     </View>
   );
 };

@@ -38,6 +38,7 @@ const Display = () => {
           <Text style={{color: 'white'}}>Order #001</Text>
         </TouchableOpacity>
       )}
+
       <TouchableOpacity style={styles.box} onPress={() => setOpen(!open)}>
         <Text style={{color: 'white'}}>Order #002</Text>
         {open ? (

@@ -17,6 +17,7 @@ import SocialButton from '../components/SocialButton';
 import images from '../assets/images';
 import {useForm, Controller} from 'react-hook-form';
 import Picker from '../components/PickerComponent';
+import SignupText from '../components/SignupText';
 
 const data = [
   {
@@ -41,8 +42,23 @@ const SignIn = props => {
   const navigate = () => {
     props.navigation.navigate('Targets');
   };
+  const {
+    handleSubmit,
+    control,
+    formState: {errors},
+  } = useForm();
+
   return (
     <View style={styles.container}>
+      {/* <View style={styles.inputView}>
+        <Icon name="user" type="font-awesome" color="#7a42f4" size={20} />
+        <SignupText
+          placeholder="Company"
+          name="Company"
+          control={control}
+          rules={{required: 'Company is required'}}
+        />
+      </View> */}
       <View style={styles.inputView}>
         <Icon name="user" type="font-awesome" color="#7a42f4" size={20} />
         <TextInput

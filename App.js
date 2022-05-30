@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image, View, Text, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -10,6 +10,7 @@ import CustomerDetails from './Screens/CustomerDetails';
 import LeadStatus from './Screens/LeadStatus';
 import GeneratedLeads from './Screens/GeneratedLeads';
 import Display from './Screens/Display';
+import {Icon} from 'react-native-elements';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -26,6 +27,32 @@ const TabsScreen = () => {
 const App = () => {
   return (
     <>
+      <View
+        style={{
+          height: 40,
+          backgroundColor: '#3b65ab',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingHorizontal: 10,
+        }}>
+        <TouchableOpacity>
+          <Icon
+            name="arrow-left"
+            type="font-awesome-5"
+            color="white"
+            size={25}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Icon
+            name="logout"
+            type="material-community"
+            color="white"
+            size={25}
+          />
+        </TouchableOpacity>
+      </View>
       <Image source={require('./assets/radha.jpg')} style={styles.logo} />
       <NavigationContainer>
         <Stack.Navigator>
